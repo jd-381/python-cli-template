@@ -151,6 +151,11 @@ jobs:
 
           echo "✅ Updated and replaced README.md, removed templates directory"
 
+      - name: Regenerate documentation
+        run: |
+          make docs
+          echo "✅ Regenerated USAGE.md with updated package and CLI names"
+
       - name: Verify changes
         run: |
           echo "📋 Changed files:"
