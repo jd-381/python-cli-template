@@ -23,7 +23,8 @@ gh api \
       {"context": "Lint"},
       {"context": "Format Check"},
       {"context": "Test"},
-      {"context": "Documentation"}
+      {"context": "Documentation"},
+      {"context": "Pre-commit Hooks"}
     ]
   },
   "enforce_admins": true,
@@ -54,7 +55,7 @@ gh api \
 echo "✓ Automatic branch deletion enabled!"
 echo ""
 echo "Settings applied:"
-echo "  - Require status checks to pass: Lint, Format Check, Test, Documentation"
+echo "  - Require status checks to pass: Lint, Format Check, Test, Documentation, Pre-commit Hooks"
 echo "  - Enforce rules for administrators"
 echo "  - Block force pushes and deletions"
 echo "  - Automatically delete head branches on PR merge"

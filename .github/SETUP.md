@@ -4,12 +4,13 @@ This directory contains GitHub-specific configuration for workflows and branch p
 
 ## CI/CD Workflow
 
-The [ci.yml](workflows/ci.yml) workflow runs four quality checks on every push and pull request to `main`:
+The [ci.yml](workflows/ci.yml) workflow runs five quality checks on every push and pull request to `main`:
 
 - ✅ **Lint** - Code quality checks with Ruff
 - ✅ **Format Check** - Ensures code is properly formatted
 - ✅ **Test** - Runs the test suite with pytest
 - ✅ **Documentation** - Verifies `USAGE.md` is up to date
+- ✅ **Pre-commit Hooks** - Runs the baseline pre-commit hooks (trailing whitespace, end-of-file, YAML/TOML validation, merge conflict markers, large files, private keys)
 
 **Triggers:**
 - Push to `main` branch
@@ -31,7 +32,7 @@ make github
 
 This runs [setup-branch-protection.sh](setup-branch-protection.sh), a one-time script that configures the following rules for `main`:
 
-- ✅ Require all CI checks to pass (lint, format, test, docs)
+- ✅ Require all CI checks to pass (lint, format, test, docs, pre-commit hooks)
 - ✅ Block force pushes and branch deletion
 - ✅ Enable automatic branch deletion after merge
 

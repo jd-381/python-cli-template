@@ -8,11 +8,12 @@ help:
 	@echo "  make docs         - Generate CLI usage documentation"
 	@echo "  make format       - Format code with Ruff"
 	@echo "  make github       - Configure GitHub branch protection rules"
+	@echo "  make hooks        - Run baseline pre-commit hooks (whitespace, YAML/TOML, etc.)"
 	@echo "  make install      - Install CLI tool globally"
 	@echo "  make lint         - Check code with Ruff linter"
 	@echo "  make test         - Run test suite with pytest"
 	@echo "  make upgrade      - Reinstall CLI tool (clears cache)"
-	@echo "  make validate     - Run lint, format, and test"
+	@echo "  make validate     - Run lint, format, test, and hooks"
 
 .DEFAULT_GOAL := help
 
@@ -38,6 +39,12 @@ github:
 	fi
 	@echo "Configuring GitHub branch protection rules..."
 	@./.github/setup-branch-protection.sh
+
+.PHONY: hooks
+hooks:
+	@# ruff, ruff-format, pytest, and docs are already covered by the
+	@# lint, format, test, and docs targets - only run the rest here.
+	SKIP=ruff,ruff-format,pytest,docs uv run pre-commit run --all-files
 
 .PHONY: install
 install:
@@ -69,4 +76,5 @@ validate:
 	@$(MAKE) lint
 	@$(MAKE) format
 	@$(MAKE) test
+	@$(MAKE) hooks
 	@echo "✓ All validation checks passed!"
