@@ -24,6 +24,7 @@ Installs everything you need:
 - Lint code with Ruff
 - Run the test suite
 - Generate documentation (fails if `USAGE.md` was edited manually)
+- Baseline checks: trailing whitespace, end-of-file newlines, YAML/TOML validity, merge-conflict markers, large files, private keys
 
 ### Validate Setup
 
@@ -74,13 +75,14 @@ Run `make` without arguments to see all available commands.
 | Command | Description |
 |---------|-------------|
 | `make deps` | Install dependencies and set up git hooks |
-| `make validate` | Run lint, format, and test |
+| `make validate` | Run lint, format, test, and hooks |
 | `make install` | Install CLI globally to `~/.local/bin` |
 | `make upgrade` | Reinstall CLI with fresh cache |
 | `make docs` | Generate `USAGE.md` documentation |
 | `make lint` | Check code with Ruff (no changes) |
 | `make format` | Format code with Ruff |
 | `make test` | Run test suite with pytest |
+| `make hooks` | Run baseline pre-commit hooks (whitespace, YAML/TOML, etc.) |
 | `make github` | Configure branch protection (requires GitHub CLI) |
 
 ## Project Structure

@@ -11,7 +11,7 @@ A production-ready template for building Python CLI applications with [Typer](ht
 - ✅ Comprehensive test suite with pytest
 - ✅ Code quality tools (Ruff for linting and formatting)
 - ✅ Pre-commit hooks for automatic quality checks
-- ✅ GitHub Actions CI/CD workflow (lint, format, test, docs)
+- ✅ GitHub Actions CI/CD workflow (lint, format, test, docs, pre-commit hooks)
 - ✅ Branch protection configuration
 - ✅ Auto-generated usage documentation with Typer CLI
 - ✅ Makefile for common development tasks
@@ -78,7 +78,7 @@ make github
 ```
 
 This command will:
-- ✅ Require all CI checks to pass (lint, format, test, docs)
+- ✅ Require all CI checks to pass (lint, format, test, docs, pre-commit hooks)
 - ✅ Block force pushes and branch deletion
 - ✅ Enable automatic branch deletion after merge
 
